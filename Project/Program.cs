@@ -9,6 +9,8 @@ namespace Project
             // Add services to the container.
             builder.Services.AddRazorPages();
 
+            builder.Services.AddSignalR();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -27,6 +29,8 @@ namespace Project
             app.UseAuthorization();
 
             app.MapRazorPages();
+
+            app.MapHub<ChatHub>("/chatHub");
 
             app.Run();
         }
