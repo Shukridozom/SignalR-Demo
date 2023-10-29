@@ -1,25 +1,9 @@
 ﻿"use strict";
 
-//var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 var connection
 
 //Disable the send button until connection is established.
 document.getElementById("btn-send-message").disabled = true;
-
-//connection.on("ReceiveMessage", function (user, message) {
-//    var li = document.createElement("li");
-//    document.getElementById("received-messages").appendChild(li);
-//    // We can assign user-supplied strings to an element's textContent because it
-//    // is not interpreted as markup. If you're assigning in any other way, you 
-//    // should be aware of possible script injection concerns.
-//    li.textContent = `${user} says ${message}`;
-//});
-
-//connection.start().then(function () {
-//    document.getElementById("btn-send-message").disabled = false;
-//}).catch(function (err) {
-//    return console.error(err.toString());
-//});
 
 document.getElementById("btn-send-message").addEventListener("click", function (event) {
     var user = document.getElementById("sendto").value;
@@ -43,13 +27,13 @@ document.getElementById("btn-connect").addEventListener("click", function (event
                 .withUrl("/chatHub", { accessTokenFactory: () => data })
                 .build();
 
-            connection.on("ReceiveMessage", function (user, message) {
+            connection.on("ReceiveMessage", function (sender, message) {
                 var li = document.createElement("li");
                 document.getElementById("received-messages").appendChild(li);
                 // We can assign user-supplied strings to an element's textContent because it
                 // is not interpreted as markup. If you're assigning in any other way, you
                 // should be aware of possible script injection concerns.
-                li.textContent = `${user} says ${message}`;
+                li.textContent = `From ${sender}: ${message}`;
             });
 
             connection.start().then(function () {

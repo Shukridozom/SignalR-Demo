@@ -8,7 +8,7 @@ namespace Project
     {
         public async Task SendMessage(string user, string message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message);
+            await Clients.User(user).SendAsync("ReceiveMessage", Context.UserIdentifier, message);
         }
     }
 }
