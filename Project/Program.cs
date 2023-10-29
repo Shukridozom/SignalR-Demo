@@ -44,6 +44,7 @@ namespace Project
 
             app.UseRouting();
 
+            app.UseMiddleware<SignalrAuthMiddleware>();
             app.UseAuthentication();
 
             app.UseAuthorization();
