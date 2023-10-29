@@ -22,7 +22,7 @@ document.getElementById("btn-send-message").disabled = true;
 //});
 
 document.getElementById("btn-send-message").addEventListener("click", function (event) {
-    var user = document.getElementById("username").value;
+    var user = document.getElementById("sendto").value;
     var message = document.getElementById("message").value;
     connection.invoke("SendMessage", user, message).catch(function (err) {
         return console.error(err.toString());
@@ -33,7 +33,7 @@ document.getElementById("btn-send-message").addEventListener("click", function (
 document.getElementById("btn-connect").addEventListener("click", function (event) {
     $.ajax({
         type: 'GET',
-        url: 'https://localhost:7299/api/login/' + document.getElementById("username").toString(),
+        url: 'https://localhost:7299/api/login/' + document.getElementById("username").value,
         success: function (data) {
             console.log(data)
             //connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
