@@ -48,7 +48,7 @@ namespace Project
 
             app.UseAuthorization();
 
-            app.MapRazorPages();
+            app.MapControllers();
 
             app.MapHub<ChatHub>("/chatHub");
 
