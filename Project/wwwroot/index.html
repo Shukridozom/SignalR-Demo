@@ -5,33 +5,40 @@
     <meta charset="utf-8" />
     <title></title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col col-md-6">
+            <div class="col-sm-6" style="margin-bottom: 5rem;">
                 <label class="col-form-label mt-4" for="username">Username</label>
                 <input type="text" class="form-control" placeholder="Enter your username" id="username">
                 <label class="col-form-label mt-4" for="sendto">Send To</label>
                 <input type="text" class="form-control" placeholder="Receiver username" id="sendto">
                 <label class="col-form-label mt-4" for="message">Message</label>
                 <input type="text" class="form-control" placeholder="Message" id="message">
-                <button id="btn-connect" type="button" class="btn btn-info">Connect</button>
-                <button id="btn-send-message" type="button" class="btn btn-info">Send Message</button>
+
+                <div class="buttons-group">
+                    <button id="btn-connect" type="button" class="btn btn-info">Connect</button>
+                    <button id="btn-send-message" type="button" class="btn btn-info">Send Message</button>
+                </div>
             </div>
-            <div class="col col-md-6">
+            <div class="col-sm-6">
                 <label class="col-form-label mt-4">Received messages</label>
 
-                <ul id="received-messages" style="overflow: scroll; height: 80vh;">
-                </ul>
+
+                <div id="received-messages">
+                </div>
+
 
 
             </div>
         </div>
     </div>
-<script src="assets/js/lib/signalr.js"></script>
-<script src="assets/js/index.js"></script>
+    <script src="assets/js/lib/signalr.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
+
 </html>
