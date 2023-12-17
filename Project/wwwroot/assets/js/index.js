@@ -18,7 +18,7 @@ document.getElementById("btn-connect").addEventListener("click", function (event
     document.getElementById("btn-connect").disabled = true;
     $.ajax({
         type: 'GET',
-        url: 'https://localhost:7299/api/login/' + document.getElementById("username").value,
+        url: 'https://' + window.location.host + '/api/login/' + document.getElementById("username").value,
         success: function (data) {
             console.log(data)
             //connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
